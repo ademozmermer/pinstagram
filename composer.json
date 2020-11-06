@@ -1,0 +1,30 @@
+{
+  "name": "ademozmermer/pinstagram",
+  "type": "package",
+  "description": "Instagram Private API for PHP",
+  "keywords": [
+    "instagram",
+    "private api",
+    "social media"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Adem Özmermer",
+      "email": "ademozmermer27@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "guzzlehttp/guzzle": "^7.2",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "files": [
+      "src/helpers.php"
+    ],
+    "psr-4": {
+      "AdemOzmermer\\": "src/"
+    }
+  }
+}
