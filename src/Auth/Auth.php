@@ -4,6 +4,7 @@
 namespace AdemOzmermer\Auth;
 
 use AdemOzmermer\Client\Http;
+use AdemOzmermer\Exceptions\AuthException;
 use GuzzleHttp\Cookie\FileCookieJar;
 use GuzzleHttp\Exception\ClientException;
 use AdemOzmermer\Core\{Constants, Device};
@@ -78,9 +79,22 @@ class Auth extends Http
         try {
             $response = $this->request('POST', Constants::APP_URL.'/api/v1/accounts/login/');
         } catch (ClientException $exception) {
-            return json_decode($exception->getResponse()->getBody());
+            $error = json_decode($exception->getResponse()->getBody());
+
+            if ($error->message == 'challenge_required')
+            {
+                // @todo two factor login
+            }
+            else
+            {
+                throw new AuthException('Oturum açma işlemi başarısız. Lütfen issue açınız.');
+            }
         }
 
-        return $response->getHeaders();
+        return $response->getBody();
+    }
+
+    public function twoFactor() {
+        // @todo
     }
 }
