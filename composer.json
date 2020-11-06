@@ -26,5 +26,7 @@
     "psr-4": {
       "AdemOzmermer\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
