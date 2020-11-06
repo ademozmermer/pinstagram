@@ -16,7 +16,7 @@ use AdemOzmermer\Auth\Auth;
 
 $auth = new Auth('username', 'password', 'proxy');
 
-print_r($auth);
+print_r($auth->login());
 ```
 
 ### Parametreler
